@@ -1,5 +1,6 @@
 package com.example.gittest
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -18,7 +19,18 @@ class MainActivity : AppCompatActivity() {
         val btnUpdate: Button= findViewById(R.id.button3)
         val btnDelete: Button= findViewById(R.id.button4)
 
-
+        btnCreate.setOnClickListener {
+            val intent= Intent(this,CreateActivity::class.java )
+            startActivity(intent)
+        }
+        btnDelete.setOnClickListener {
+            val intent=Intent(this, DeleteActivity::class.java)
+            startActivity(intent)
+        }
+        btnUpdate.setOnClickListener {
+            val intent=Intent(this, UpdateActivity::class.java)
+            startActivity(intent)
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
