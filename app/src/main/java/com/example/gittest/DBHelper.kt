@@ -8,10 +8,12 @@ import android.database.sqlite.SQLiteOpenHelper
 class DBHelper(val context:Context, val factory: CursorFactory?) :
     SQLiteOpenHelper(context, "app", factory,1) {
     override fun onCreate(db: SQLiteDatabase?) {
-        TODO("Not yet implemented")
+        val query = "CREATE TABLE users(id INT PRIMARY KEY, login TEXT, email TEXT,password TEXT)"
+        db!!.execSQL(query)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        TODO("Not yet implemented")
+        db!!.execSQL("DROP TABLE IF EXISTS users")
+        onCreate(db)
     }
 }
